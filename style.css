@@ -3023,6 +3023,358 @@ html {
     }
 }
 
+/* ================= GALLERY SECTION ================= */
+
+.college-gallery {
+    padding: 15px 6%;
+    background: linear-gradient(180deg, #FFFFFF, #FFF1F2);
+    overflow: hidden;
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Heading */
+
+.gallery-heading {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.gallery-subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    background: #FCE7F3;
+    color: #BE185D;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.gallery-heading h2 {
+    margin: 20px 0 14px;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.2;
+    font-weight: 800;
+    color: #3F3544;
+}
+
+.gallery-heading h2 span {
+    color: #E94D96;
+}
+
+.gallery-heading p {
+    margin: 0;
+    color: #777184;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Filters */
+
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.gallery-filter {
+    padding: 11px 23px;
+    border: 1px solid #FBCFE8;
+    border-radius: 30px;
+    background: #FFFFFF;
+    color: #9D174D;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-filter:hover,
+.gallery-filter.active {
+    background: #F472B6;
+    color: #FFFFFF;
+    border-color: #F472B6;
+    box-shadow: 0 5px 15px rgba(244, 114, 182, 0.2);
+}
+
+/* Image Grid */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 250px;
+    min-width: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #FBCFE8;
+    box-shadow: 0 5px 20px rgba(157, 23, 77, 0.08);
+    isolation: isolate;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.09);
+}
+
+/* Image Overlay */
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px;
+    background: linear-gradient(
+        to top,
+        rgba(80, 20, 52, 0.78),
+        rgba(80, 20, 52, 0.05) 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-within .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.gallery-zoom {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #BE185D;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.gallery-zoom:hover {
+    background: #F472B6;
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+/* Filter Animation */
+
+.gallery-item.gallery-hidden {
+    display: none;
+}
+
+/* Lightbox */
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 75px;
+    background: rgba(40, 20, 32, 0.94);
+}
+
+.gallery-lightbox.show {
+    display: flex;
+}
+
+.gallery-lightbox img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.gallery-lightbox button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #BE185D;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.gallery-lightbox button:hover {
+    background: #F472B6;
+    color: #FFFFFF;
+}
+
+.lightbox-close {
+    top: 22px;
+    right: 25px;
+}
+
+.lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .gallery-item {
+        height: 230px;
+    }
+}
+
+@media (max-width: 768px) {
+    .college-gallery {
+        padding: 65px 5%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 220px;
+        border-radius: 12px;
+    }
+
+    .gallery-overlay {
+        padding: 12px;
+        opacity: 1;
+    }
+
+    .gallery-overlay span {
+        font-size: 13px;
+    }
+
+    .gallery-zoom {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .gallery-lightbox {
+        padding: 55px 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        gap: 10px;
+    }
+
+    .gallery-item {
+        height: 165px;
+    }
+
+    .gallery-overlay {
+        padding: 9px;
+        gap: 5px;
+    }
+
+    .gallery-overlay span {
+        font-size: 11px;
+    }
+
+    .gallery-zoom {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .gallery-filter {
+        padding: 9px 15px;
+        font-size: 12px;
+    }
+
+    .gallery-lightbox {
+        padding: 55px 35px;
+    }
+
+    .gallery-lightbox button {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .lightbox-prev {
+        left: 5px;
+    }
+
+    .lightbox-next {
+        right: 5px;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-item img,
+    .gallery-overlay,
+    .gallery-filter,
+    .gallery-zoom {
+        transition: none;
+    }
+}
+
 /* ==========================================
    CONTACT SECTION
 ========================================== */
@@ -3801,6 +4153,7 @@ html {
 :root[data-theme="dark"] .admission-section,
 :root[data-theme="dark"] .courses-section,
 :root[data-theme="dark"] .facilities-section,
+:root[data-theme="dark"] .college-gallery,
 :root[data-theme="dark"] .contact-section,
 :root[data-theme="dark"] .college-footer {
     background: var(--theme-background) !important;
@@ -3820,6 +4173,8 @@ html {
 :root[data-theme="dark"] .courses-bottom,
 :root[data-theme="dark"] .facilities-banner,
 :root[data-theme="dark"] .facilities-footer,
+:root[data-theme="dark"] .gallery-subtitle,
+:root[data-theme="dark"] .gallery-filter,
 :root[data-theme="dark"] .contact-whatsapp-note,
 :root[data-theme="dark"] .footer-social a,
 :root[data-theme="dark"] .about-label,
@@ -3847,6 +4202,7 @@ html {
 :root[data-theme="dark"] .admission-section,
 :root[data-theme="dark"] .courses-section,
 :root[data-theme="dark"] .facilities-section,
+:root[data-theme="dark"] .college-gallery,
 :root[data-theme="dark"] .contact-section,
 :root[data-theme="dark"] .college-footer {
     color: var(--theme-text);
@@ -3859,6 +4215,7 @@ html {
 :root[data-theme="dark"] .admission-section :is(h1, h2, h3, h4, p, li, label, span, strong),
 :root[data-theme="dark"] .courses-section :is(h1, h2, h3, h4, p, li, label, span, strong),
 :root[data-theme="dark"] .facilities-section :is(h1, h2, h3, h4, p, li, label, span, strong),
+:root[data-theme="dark"] .college-gallery :is(h1, h2, h3, h4, p, li, label, span, strong),
 :root[data-theme="dark"] .contact-section :is(h1, h2, h3, h4, p, li, label, span, strong),
 :root[data-theme="dark"] .college-footer :is(h1, h2, h3, h4, p, li, label, span, strong, a) {
     color: var(--theme-text);
@@ -3871,9 +4228,35 @@ html {
 :root[data-theme="dark"] .quick-link,
 :root[data-theme="dark"] .footer-logo,
 :root[data-theme="dark"] .back-to-top,
+:root[data-theme="dark"] .gallery-subtitle,
+:root[data-theme="dark"] .gallery-filter,
 :root[data-theme="dark"] .course-filter-btn,
 :root[data-theme="dark"] .admission-secondary-btn {
     color: #F9A8D4;
+}
+
+:root[data-theme="dark"] .college-gallery {
+    background: linear-gradient(180deg, var(--theme-background), #191622) !important;
+}
+
+:root[data-theme="dark"] .gallery-heading h2 {
+    color: var(--theme-text);
+}
+
+:root[data-theme="dark"] .gallery-heading h2 span {
+    color: #F472B6;
+}
+
+:root[data-theme="dark"] .gallery-item {
+    background: var(--theme-card);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme="dark"] .gallery-filter.active,
+:root[data-theme="dark"] .gallery-filter:hover {
+    background: #BE185D;
+    border-color: #BE185D;
+    color: #FFFFFF;
 }
 
 :root[data-theme="dark"] .contact-info :is(h3, h4, p, a, span),
