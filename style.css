@@ -438,6 +438,7 @@
 
 .nav-link:focus-visible,
 .navbar-apply:focus-visible,
+.navbar-login:focus-visible,
 .menu-toggle:focus-visible {
     outline: 2px solid var(--nav-primary);
     outline-offset: 3px;
@@ -525,6 +526,31 @@
     transform: translateY(-1px);
 }
 
+.navbar-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 14px;
+    border: 1px solid var(--nav-primary);
+    border-radius: 5px;
+    color: var(--nav-primary);
+    background: #FFFFFF;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease;
+}
+
+.navbar-login:hover {
+    color: #FFFFFF;
+    background: var(--nav-primary);
+    transform: translateY(-1px);
+}
+
 /* Mobile Menu Button */
 
 .menu-toggle {
@@ -564,6 +590,11 @@
 
     .navbar-apply {
         padding: 11px 12px;
+        font-size: 12px;
+    }
+
+    .navbar-login {
+        padding: 10px 11px;
         font-size: 12px;
     }
 }
@@ -654,6 +685,11 @@
         padding: 11px 14px;
         font-size: 12px;
     }
+
+    .navbar-login {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
 }
 
 /* Small Phones */
@@ -666,6 +702,12 @@
     .navbar-apply {
         gap: 5px;
         padding: 10px;
+        font-size: 11px;
+    }
+
+    .navbar-login {
+        gap: 5px;
+        padding: 9px 8px;
         font-size: 11px;
     }
 }
