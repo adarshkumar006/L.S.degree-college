@@ -2933,6 +2933,33 @@
     line-height: 1.6;
 }
 
+.course-seat-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 22px;
+    padding: 10px 13px;
+    border: 1px solid #FBCFE8;
+    border-radius: 12px;
+    background: #FFF7FB;
+    color: #64748B;
+    font-size: 12px;
+}
+
+.course-seat-info > i {
+    color: #DB2777;
+    font-size: 17px;
+}
+
+.course-seat-info strong {
+    margin-left: 3px;
+    color: #9D174D;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
 .course-link {
     display: inline-flex;
     align-items: center;
@@ -4879,6 +4906,17 @@
 :root[data-theme="dark"] .stat-icon,
 :root[data-theme="dark"] .course-category {
     background: var(--theme-surface);
+    color: #FBCFE8;
+}
+
+:root[data-theme="dark"] .course-seat-info {
+    background: var(--theme-surface);
+    border-color: var(--theme-border);
+    color: var(--theme-muted);
+}
+
+:root[data-theme="dark"] .course-seat-info > i,
+:root[data-theme="dark"] .course-seat-info strong {
     color: #FBCFE8;
 }
 
