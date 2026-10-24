@@ -1177,6 +1177,14 @@
 
             <!-- Library -->
             <article class="facility-card">
+                <button class="facility-image-button" type="button"
+                        aria-label="Enlarge Library photo">
+                    <img src="images/lib1.jpeg" alt="College library and reading area" loading="lazy">
+                    <span class="facility-image-overlay" aria-hidden="true">
+                        <span>View photo</span>
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </span>
+                </button>
                 <div class="facility-card-top">
                     <div class="facility-icon">
                         <i class="bi bi-book-half"></i>
@@ -1197,6 +1205,14 @@
 
             <!-- Computer Lab -->
             <article class="facility-card">
+                <button class="facility-image-button" type="button"
+                        aria-label="Enlarge Computer Lab photo">
+                    <img src="images/comLab1.jpeg" alt="College computer laboratory" loading="lazy">
+                    <span class="facility-image-overlay" aria-hidden="true">
+                        <span>View photo</span>
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </span>
+                </button>
                 <div class="facility-card-top">
                     <div class="facility-icon">
                         <i class="bi bi-pc-display"></i>
@@ -1217,6 +1233,14 @@
 
             <!-- Science Lab -->
             <article class="facility-card">
+                <button class="facility-image-button" type="button"
+                        aria-label="Enlarge Science Laboratories photo">
+                    <img src="images/Laboratory1.jpeg" alt="College science laboratory" loading="lazy">
+                    <span class="facility-image-overlay" aria-hidden="true">
+                        <span>View photo</span>
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </span>
+                </button>
                 <div class="facility-card-top">
                     <div class="facility-icon">
                         <i class="bi bi-eyedropper"></i>
@@ -1237,6 +1261,14 @@
 
             <!-- Classrooms -->
             <article class="facility-card">
+                <button class="facility-image-button" type="button"
+                        aria-label="Enlarge Smart Classrooms photo">
+                    <img src="images/class1.jpeg" alt="College classroom" loading="lazy">
+                    <span class="facility-image-overlay" aria-hidden="true">
+                        <span>View photo</span>
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </span>
+                </button>
                 <div class="facility-card-top">
                     <div class="facility-icon">
                         <i class="bi bi-easel2"></i>
@@ -1277,6 +1309,14 @@
 
             <!-- Seminar Hall -->
             <article class="facility-card">
+                <button class="facility-image-button" type="button"
+                        aria-label="Enlarge Seminar Hall photo">
+                    <img src="images/seminar1.jpeg" alt="College seminar hall" loading="lazy">
+                    <span class="facility-image-overlay" aria-hidden="true">
+                        <span>View photo</span>
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </span>
+                </button>
                 <div class="facility-card-top">
                     <div class="facility-icon">
                         <i class="bi bi-easel"></i>
@@ -2148,8 +2188,8 @@ let currentImageIndex = 0;
 let visibleImages = [];
 let lastFocusedElement = null;
 
-function openLightbox(item) {
-    visibleImages = [...galleryItems].filter(
+function openLightbox(item, imageItems = galleryItems) {
+    visibleImages = [...imageItems].filter(
         (galleryItem) =>
             !galleryItem.classList.contains("gallery-hidden")
     );
@@ -2216,6 +2256,12 @@ galleryItems.forEach((item) => {
 
     item.querySelector(".gallery-zoom").addEventListener("click", () => {
         openLightbox(item);
+    });
+});
+
+document.querySelectorAll(".facility-image-button").forEach((button) => {
+    button.addEventListener("click", () => {
+        openLightbox(button, [button]);
     });
 });
 
